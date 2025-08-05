@@ -3,8 +3,8 @@
 🌊 **Oceanographer | Software Engineer | Data Engineer**
 
 ---
-
-Welcome to my GitHub profile! I am a software and data engineer, where I manage and analyze climate marine ocean data. With a Ph.D. in oceanography, I am passionate about bridging scientific research and software engineering to advance climate and earth sciences.
+**Welcome to my GitHub profile!**
+I'm a software and data engineer specializing in managing and analyzing marine and climate data. With a Ph.D. in oceanography, I'm passionate about bridging scientific research and software engineering to advance climate and Earth system sciences.
 
 ### 🛠️ What I Do
 
@@ -13,8 +13,8 @@ Welcome to my GitHub profile! I am a software and data engineer, where I manage 
 - **Marine Climate Data Management:**  
   I work on managing and delivering high-quality marine and ocean climate data for research and public use.
 - **Project Highlights:**  
-  - **regional_mom6:** Development and maintenance of regional ocean model workflows.
-  - **CEFI Portal:** Lead developer of the CEFI data portal, hosted under the CEFI Portal Data Organization.
+  - [**regional_mom6:**](https://github.com/NOAA-CEFI-Portal/regional_mom6) Development and maintenance of regional ocean model workflows.
+  - [**CEFI Portal:**](https://psl.noaa.gov/cefi_portal) Lead developer of the CEFI data portal, hosted under the CEFI Portal Data Organization.
 
 ### 🌱 My Journey
 
