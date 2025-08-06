@@ -27,65 +27,7 @@ Trained as an oceanographer (Ph.D.), I am excited about the growing need for "sc
 
 ### 🏐 Outside Work
 
-When I'm not coding or working with data, you’ll find me enjoying volleyball or exploring the outdoors with my family.
-
-## 🌤️ Current Weather Forecast for Boulder, CO
-
-*Last updated: 2025-08-06 09:47:44 MDT*
-
-```
-Fetching weather forecast for Boulder, CO (40.01, -105.27)...
-============================================================
-Wed Aug 06, 09:00 AM MT - Wed Aug 06, 10:00 AM MT:
-Temperature: 83°F
-Precipitation: 0%
-Wind: 6 mph W
-
----
-Wed Aug 06, 10:00 AM MT - Wed Aug 06, 11:00 AM MT:
-Temperature: 86°F
-Precipitation: 0%
-Wind: 6 mph W
-
----
-Wed Aug 06, 11:00 AM MT - Wed Aug 06, 12:00 PM MT:
-Temperature: 89°F
-Precipitation: 0%
-Wind: 7 mph W
-
----
-Wed Aug 06, 12:00 PM MT - Wed Aug 06, 01:00 PM MT:
-Temperature: 91°F
-Precipitation: 0%
-Wind: 7 mph W
-
-============================================================
-Weather forecast completed successfully!
-```
-
-
----
-Wed Aug 06, 10:00 AM MT - Wed Aug 06, 11:00 AM MT:
-Temperature: 86°F
-Precipitation: 0%
-Wind: 6 mph W
-
----
-Wed Aug 06, 11:00 AM MT - Wed Aug 06, 12:00 PM MT:
-Temperature: 89°F
-Precipitation: 0%
-Wind: 7 mph W
-
----
-Wed Aug 06, 12:00 PM MT - Wed Aug 06, 01:00 PM MT:
-Temperature: 91°F
-Precipitation: 0%
-Wind: 7 mph W
-
-============================================================
-Weather forecast completed successfully!
-```
-
+When I'm not coding or working with data, you'll find me enjoying volleyball or exploring the outdoors with my family.
 
 ---
 

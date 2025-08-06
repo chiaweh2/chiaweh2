@@ -60,22 +60,22 @@ jobs:
         echo '```' >> weather_section.md
         echo "" >> weather_section.md
         
-        # Replace only the weather section, leave everything after "---" untouched
+        # Replace only the weather section, leave everything after final "---" untouched
         START_LINE=$(grep -n "## 🌤️ Current Weather Forecast" README.md | cut -d: -f1)
-        DASH_LINE=$(tail -n +$((START_LINE + 1)) README.md | grep -n "^---" | head -1 | cut -d: -f1)
+        FINAL_DASH_LINE=$(grep -n "^---$" README.md | tail -1 | cut -d: -f1)
 
-        if [ -n "$START_LINE" ] && [ -n "$DASH_LINE" ]; then
-          END_LINE=$((START_LINE + DASH_LINE - 1))
+        if [ -n "$START_LINE" ] && [ -n "$FINAL_DASH_LINE" ]; then
           # Keep everything before weather section
           head -n $((START_LINE - 1)) README.md > temp_readme.md
           # Add new weather section
           cat weather_section.md >> temp_readme.md
-          # Add everything after the "---"
-          tail -n +$((END_LINE)) README.md >> temp_readme.md
+          # Add everything from the final "---" onwards
+          tail -n +$FINAL_DASH_LINE README.md >> temp_readme.md
         else
-          # Fallback: append weather section at the very end
-          cat README.md > temp_readme.md
+          # Fallback: append weather section before the last 2 lines
+          head -n -2 README.md > temp_readme.md
           cat weather_section.md >> temp_readme.md
+          tail -n 2 README.md >> temp_readme.md
         fi
 
         # Replace the original README
