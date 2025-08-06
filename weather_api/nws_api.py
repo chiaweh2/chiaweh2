@@ -102,7 +102,7 @@ async def get_forecast(latitude: float, longitude: float) -> str:
         )
         forecasts.append(forecast)
 
-    return "\n---\n".join(forecasts)
+    return "\n===\n".join(forecasts)
 
 
 async def main():
