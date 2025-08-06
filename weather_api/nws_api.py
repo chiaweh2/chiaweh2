@@ -97,7 +97,7 @@ async def get_forecast(latitude: float, longitude: float) -> str:
         forecast = (
             f"{start_time_formatted} - {end_time_formatted}:\n"
             f"Temperature: {period['temperature']}°{period['temperatureUnit']}\n"
-            f"Precipitation: {period['probabilityOfPrecipitation']}%\n"
+            f"Precipitation: {period['probabilityOfPrecipitation']['value']}%\n"
             f"Wind: {period['windSpeed']} {period['windDirection']}\n"
         )
         forecasts.append(forecast)
