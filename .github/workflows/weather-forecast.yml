@@ -48,7 +48,7 @@ jobs:
     - name: Update README with weather forecast
       run: |
         # Get current timestamp
-        TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        TIMESTAMP=$(TZ="America/Denver" date '+%Y-%m-%d %H:%M:%S %Z')
         
         # Create the weather section
         echo "## 🌤️ Current Weather Forecast for Boulder, CO" > weather_section.md

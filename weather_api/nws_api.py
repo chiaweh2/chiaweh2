@@ -2,6 +2,7 @@ from typing import Any
 import httpx
 from datetime import datetime
 import asyncio
+import pytz
 
 
 # Constants
@@ -82,16 +83,21 @@ async def get_forecast(latitude: float, longitude: float) -> str:
     periods = forecast_data["properties"]["periods"]
     forecasts = []
     for period in periods[:4]:  # Only show next 4 periods
-        # Parse the ISO datetime string and format it nicely
-        start_time = datetime.fromisoformat(period["startTime"])
-        start_time_formatted = start_time.strftime("%a %b %d, %I:%M %p")
+        # Parse the ISO datetime string and convert to Mountain Time
+        mountain_tz = pytz.timezone("America/Denver")
 
-        end_time = datetime.fromisoformat(period["endTime"])
-        end_time_formatted = end_time.strftime("%a %b %d, %I:%M %p")
+        start_time = datetime.fromisoformat(period["startTime"].replace("Z", "+00:00"))
+        start_time_mt = start_time.astimezone(mountain_tz)
+        start_time_formatted = start_time_mt.strftime("%a %b %d, %I:%M %p MT")
+
+        end_time = datetime.fromisoformat(period["endTime"].replace("Z", "+00:00"))
+        end_time_mt = end_time.astimezone(mountain_tz)
+        end_time_formatted = end_time_mt.strftime("%a %b %d, %I:%M %p MT")
 
         forecast = (
             f"{start_time_formatted} - {end_time_formatted}:\n"
             f"Temperature: {period['temperature']}°{period['temperatureUnit']}\n"
+            f"Precipitation: {period['probabilityOfPrecipitation']}%\n"
             f"Wind: {period['windSpeed']} {period['windDirection']}\n"
         )
         forecasts.append(forecast)
