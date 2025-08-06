@@ -1,0 +1,100 @@
+name: Weather Forecast
+
+on:
+  # Run on push to main branch
+  push:
+    branches: [ main ]
+  
+  # Run on pull requests
+  pull_request:
+    branches: [ main ]
+  
+  # Allow manual trigger
+  workflow_dispatch:
+  
+  # Run on a schedule (every 1 hours)
+  schedule:
+    - cron: '0 */1 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  weather-forecast:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install uv
+      run: |
+        curl -Ls https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz | tar xz
+        sudo mv uv /usr/local/bin/
+    
+    - name: Sync dependencies
+      run: uv sync
+    
+    - name: Run weather forecast script
+      run: |
+        echo "Running weather forecast..."
+        python weather_api/nws_api.py > weather_api/weather_output.txt
+        echo "Weather forecast captured to weather_output.txt"
+    
+    - name: Update README with weather forecast
+      run: |
+        # Get current timestamp
+        TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        
+        # Create the weather section
+        echo "## 🌤️ Current Weather Forecast for Boulder, CO" > weather_section.md
+        echo "" >> weather_section.md
+        echo "*Last updated: $TIMESTAMP*" >> weather_section.md
+        echo "" >> weather_section.md
+        echo '```' >> weather_section.md
+        cat weather_output.txt >> weather_section.md
+        echo '```' >> weather_section.md
+        echo "" >> weather_section.md
+        
+        # Replace only the weather section, leave everything after "---" untouched
+        START_LINE=$(grep -n "## 🌤️ Current Weather Forecast" README.md | cut -d: -f1)
+        DASH_LINE=$(tail -n +$((START_LINE + 1)) README.md | grep -n "^---" | head -1 | cut -d: -f1)
+
+        if [ -n "$START_LINE" ] && [ -n "$DASH_LINE" ]; then
+          END_LINE=$((START_LINE + DASH_LINE - 1))
+          # Keep everything before weather section
+          head -n $((START_LINE - 1)) README.md > temp_readme.md
+          # Add new weather section
+          cat weather_section.md >> temp_readme.md
+          # Add everything after the "---"
+          tail -n +$((END_LINE)) README.md >> temp_readme.md
+        else
+          # Fallback: append weather section at the very end
+          cat README.md > temp_readme.md
+          cat weather_section.md >> temp_readme.md
+        fi
+
+        # Replace the original README
+        mv temp_readme.md README.md
+
+        # Remove temporary files
+        rm -f temp_readme.md weather_section.md
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update weather forecast in README"
+          git push
+        fi

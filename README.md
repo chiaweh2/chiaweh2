@@ -29,6 +29,10 @@ Trained as an oceanographer (Ph.D.), I am excited about the growing need for "sc
 
 When I'm not coding or working with data, you’ll find me enjoying volleyball or exploring the outdoors with my family.
 
+## 🌤️ Current Weather Forecast for Boulder, CO
+
+Fetching the NWS API .....
+
 ---
 
 *Let's connect and collaborate to make a difference in climate science!*

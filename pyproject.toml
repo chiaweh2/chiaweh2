@@ -1,0 +1,9 @@
+[project]
+name = "chiaweh2"
+version = "0.1.0"
+description = "this is for chiaweh2 GitHub Profile"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.24.0",
+]
