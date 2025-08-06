@@ -7,7 +7,7 @@ import pytz
 
 # Constants
 NWS_API_BASE = "https://api.weather.gov"
-USER_AGENT = "weather-app/1.0"
+USER_AGENT = "weather-hourly-update (chiaweh2@uci.edu)"  # NWS recommends including contact info
 BOULDER_POINTS = [40.01,-105.27] # lat, lon for Boulder, CO
 # Example URLs:
 # https://api.weather.gov/points/40.01,-105.27
@@ -38,8 +38,8 @@ async def make_nws_request(url: str) -> dict[str, Any] :
     
     """
     headers = {
-        "User-Agent": USER_AGENT,
-        "Accept": "application/geo+json"
+        "User-Agent": USER_AGENT,  # Required by NWS
+        "Accept": "application/geo+json"  # NWS returns GeoJSON format
     }
     async with httpx.AsyncClient() as client:
         try:
@@ -80,17 +80,44 @@ async def get_forecast(latitude: float, longitude: float) -> str:
         raise RuntimeError("Unable to fetch detailed forecast.")
 
     # Format the periods into a readable forecast
-    periods = forecast_data["properties"]["periods"]
-    forecasts = []
-    for period in periods[:4]:  # Only show next 4 periods
-        # Parse the ISO datetime string and convert to Mountain Time
-        mountain_tz = pytz.timezone("America/Denver")
+    generate_time = forecast_data["properties"]["generatedAt"]
+    generate_time_mt = datetime.fromisoformat(generate_time).astimezone(pytz.timezone("America/Denver"))
+    generate_time_formatted = generate_time_mt.strftime("%a %b %d, %I:%M %p MT")
+    forecast_header = (
+        f"Weather Forecast (Generated at {generate_time_formatted}):\n"
+    )
 
-        start_time = datetime.fromisoformat(period["startTime"].replace("Z", "+00:00"))
+    periods = forecast_data["properties"]["periods"]
+    mountain_tz = pytz.timezone("America/Denver")
+    current_time_mt = datetime.now(mountain_tz)
+    
+    # Find the current period based on Mountain Time
+    current_period_index = 0
+    for i, period in enumerate(periods):
+        start_time = datetime.fromisoformat(period["startTime"])
+        end_time = datetime.fromisoformat(period["endTime"])
+        start_time_mt = start_time.astimezone(mountain_tz)
+        end_time_mt = end_time.astimezone(mountain_tz)
+        
+        # Check if current time falls within this period
+        if start_time_mt <= current_time_mt < end_time_mt:
+            current_period_index = i
+            break
+        # If current time is before the first period, use the first period
+        elif current_time_mt < start_time_mt:
+            current_period_index = i
+            break
+    
+    # Get current period and next 3 consecutive periods (4 total)
+    selected_periods = periods[current_period_index:current_period_index + 4]
+    
+    forecasts = [forecast_header]
+    for period in selected_periods:
+        start_time = datetime.fromisoformat(period["startTime"])
         start_time_mt = start_time.astimezone(mountain_tz)
         start_time_formatted = start_time_mt.strftime("%a %b %d, %I:%M %p MT")
 
-        end_time = datetime.fromisoformat(period["endTime"].replace("Z", "+00:00"))
+        end_time = datetime.fromisoformat(period["endTime"])
         end_time_mt = end_time.astimezone(mountain_tz)
         end_time_formatted = end_time_mt.strftime("%a %b %d, %I:%M %p MT")
 
