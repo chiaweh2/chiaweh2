@@ -36,8 +36,7 @@ jobs:
     
     - name: Install uv
       run: |
-        curl -Ls https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz | tar xz
-        sudo mv uv /usr/local/bin/
+        curl -LsSf https://astral.sh/uv/install.sh | sh
     
     - name: Sync dependencies
       run: uv sync
