@@ -43,9 +43,7 @@ jobs:
     
     - name: Run weather forecast script
       run: |
-        echo "Running weather forecast..."
-        python weather_api/nws_api.py > weather_api/weather_output.txt
-        echo "Weather forecast captured to weather_output.txt"
+        uv run python weather_api/nws_api.py > weather_output.txt
     
     - name: Update README with weather forecast
       run: |
