@@ -31,24 +31,12 @@ When I'm not coding or working with data, you'll find me enjoying volleyball or 
 
 ### 🌤️ Current Weather Forecast for Boulder, CO
 
-*Last updated: 2025-08-30 17:15:43 MDT*
+*Last updated: 2025-08-30 19:25:54 MDT*
 
 ```
 Fetching weather forecast for Boulder, CO (40.01, -105.27)...
 ============================================================
-Weather Forecast (Generated at Sat Aug 30, 05:15 PM MT):
-
-===
-Sat Aug 30, 05:00 PM MT - Sat Aug 30, 06:00 PM MT:
-Temperature: 71°F
-Precipitation: 53%
-Wind: 3 mph N
-
-===
-Sat Aug 30, 06:00 PM MT - Sat Aug 30, 07:00 PM MT:
-Temperature: 70°F
-Precipitation: 30%
-Wind: 3 mph W
+Weather Forecast (Generated at Sat Aug 30, 04:15 PM MT):
 
 ===
 Sat Aug 30, 07:00 PM MT - Sat Aug 30, 08:00 PM MT:
@@ -59,6 +47,18 @@ Wind: 2 mph E
 ===
 Sat Aug 30, 08:00 PM MT - Sat Aug 30, 09:00 PM MT:
 Temperature: 64°F
+Precipitation: 20%
+Wind: 2 mph W
+
+===
+Sat Aug 30, 09:00 PM MT - Sat Aug 30, 10:00 PM MT:
+Temperature: 63°F
+Precipitation: 20%
+Wind: 2 mph WSW
+
+===
+Sat Aug 30, 10:00 PM MT - Sat Aug 30, 11:00 PM MT:
+Temperature: 62°F
 Precipitation: 20%
 Wind: 2 mph W
 
