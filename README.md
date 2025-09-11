@@ -31,18 +31,12 @@ When I'm not coding or working with data, you'll find me enjoying volleyball or 
 
 ### 🌤️ Current Weather Forecast for Boulder, CO
 
-*Last updated: 2025-09-11 16:16:04 MDT*
+*Last updated: 2025-09-11 17:16:30 MDT*
 
 ```
 Fetching weather forecast for Boulder, CO (40.01, -105.27)...
 ============================================================
-Weather Forecast (Generated at Thu Sep 11, 04:16 PM MT):
-
-===
-Thu Sep 11, 04:00 PM MT - Thu Sep 11, 05:00 PM MT:
-Temperature: 82°F
-Precipitation: 35%
-Wind: 9 mph W
+Weather Forecast (Generated at Thu Sep 11, 05:16 PM MT):
 
 ===
 Thu Sep 11, 05:00 PM MT - Thu Sep 11, 06:00 PM MT:
@@ -61,6 +55,12 @@ Thu Sep 11, 07:00 PM MT - Thu Sep 11, 08:00 PM MT:
 Temperature: 75°F
 Precipitation: 23%
 Wind: 7 mph WSW
+
+===
+Thu Sep 11, 08:00 PM MT - Thu Sep 11, 09:00 PM MT:
+Temperature: 71°F
+Precipitation: 23%
+Wind: 7 mph W
 
 ============================================================
 Weather forecast completed successfully!
