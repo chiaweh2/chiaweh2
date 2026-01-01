@@ -31,18 +31,12 @@ When I'm not coding or working with data, you'll find me enjoying volleyball or 
 
 ### 🌤️ Current Weather Forecast for Boulder, CO
 
-*Last updated: 2025-12-31 19:48:54 MST*
+*Last updated: 2025-12-31 20:36:19 MST*
 
 ```
 Fetching weather forecast for Boulder, CO (40.01, -105.27)...
 ============================================================
 Weather Forecast (Generated at Wed Dec 31, 02:23 PM MT):
-
-===
-Wed Dec 31, 07:00 PM MT - Wed Dec 31, 08:00 PM MT:
-Temperature: 44°F
-Precipitation: 0%
-Wind: 7 mph WSW
 
 ===
 Wed Dec 31, 08:00 PM MT - Wed Dec 31, 09:00 PM MT:
@@ -58,6 +52,12 @@ Wind: 7 mph WSW
 
 ===
 Wed Dec 31, 10:00 PM MT - Wed Dec 31, 11:00 PM MT:
+Temperature: 42°F
+Precipitation: 0%
+Wind: 7 mph W
+
+===
+Wed Dec 31, 11:00 PM MT - Thu Jan 01, 12:00 AM MT:
 Temperature: 42°F
 Precipitation: 0%
 Wind: 7 mph W
