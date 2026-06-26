@@ -31,24 +31,12 @@ When I'm not coding or working with data, you'll find me enjoying volleyball or 
 
 ### 🌤️ Current Weather Forecast for Boulder, CO
 
-*Last updated: 2026-06-25 19:46:31 MDT*
+*Last updated: 2026-06-25 21:11:16 MDT*
 
 ```
 Fetching weather forecast for Boulder, CO (40.01, -105.27)...
 ============================================================
-Weather Forecast (Generated at Thu Jun 25, 07:46 PM MT):
-
-===
-Thu Jun 25, 07:00 PM MT - Thu Jun 25, 08:00 PM MT:
-Temperature: 69°F
-Precipitation: 41%
-Wind: 6 mph NE
-
-===
-Thu Jun 25, 08:00 PM MT - Thu Jun 25, 09:00 PM MT:
-Temperature: 65°F
-Precipitation: 41%
-Wind: 5 mph NE
+Weather Forecast (Generated at Thu Jun 25, 09:11 PM MT):
 
 ===
 Thu Jun 25, 09:00 PM MT - Thu Jun 25, 10:00 PM MT:
@@ -61,6 +49,18 @@ Thu Jun 25, 10:00 PM MT - Thu Jun 25, 11:00 PM MT:
 Temperature: 64°F
 Precipitation: 34%
 Wind: 3 mph NNW
+
+===
+Thu Jun 25, 11:00 PM MT - Fri Jun 26, 12:00 AM MT:
+Temperature: 64°F
+Precipitation: 34%
+Wind: 3 mph N
+
+===
+Fri Jun 26, 12:00 AM MT - Fri Jun 26, 01:00 AM MT:
+Temperature: 64°F
+Precipitation: 5%
+Wind: 3 mph SSW
 
 ============================================================
 Weather forecast completed successfully!
